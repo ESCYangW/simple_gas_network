@@ -1,0 +1,5 @@
+polars
+mip
+plotly
+pyomo
+cbc #pyomo solver
