@@ -98,12 +98,13 @@ if result.solver.status == pyo.SolverStatus.ok and result.solver.termination_con
 
     # Add pipelines
     for (i, j) in pipelines:
-        print(pyo.value(model.f[i, j]))
+        #print(pyo.value(model.f[i, j]))
+        value = pyo.value(model.f[i, j]) 
         fig.add_trace(go.Scatter(x=[coordinates[i][0], coordinates[j][0]], 
-                                 y=[coordinates[i][1], coordinates[j][1]], 
+                                 y=[coordinates[i][1], coordinates[j][1]],
                                  mode='lines', 
                                  line=dict(width=2, color='red'),
-                                 name=f'Pipeline {i}-{j}'))
+                                 name=f'Pipeline {i}-{j} with flow: {value}'))
     # Add cell points
     for i in coordinates:
         fig.add_trace(go.Scatter(x=[coordinates[i][0]], 
